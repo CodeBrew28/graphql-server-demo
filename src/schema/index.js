@@ -7,11 +7,13 @@ const typeDefs = gql`
 
   type Mutation {
     newAuthor(name: String!): Author
+    authorWinsAward(name: String!): Boolean!
   }
 
   type Author {
     id: ID!
     name: String!
+    hasWonAwards: Boolean!
   }
 `;
 

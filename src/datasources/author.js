@@ -12,6 +12,10 @@ class AuthorAPI extends DataSource {
     return authors && authors[0] ? authors[0] : null;
   }
 
+  async authorWonAward({ name: nameArg } = {}) {
+    const succesfulUpdate = await this.store.authors.update( { hasWonAwards: true }, {where: {name:nameArg}})
+    return succesfulUpdate == true
+  }
 
   async getAllAuthors() {
     return await this.store.authors.findAll()

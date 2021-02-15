@@ -8,6 +8,10 @@ module.exports.createStore = () => {
 
     const authors = db.define('author', {
         name: Sequelize.STRING,
+        hasWonAwards: {
+            type: Sequelize.BOOLEAN,
+            defaultValue: false
+        }
     });
       
     return { db, authors };

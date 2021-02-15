@@ -8,6 +8,9 @@ const resolvers =  {
         newAuthor: async (_, {name }, { dataSources }) => {
             return dataSources.authorAPI.findOrCreateAuthor({name})
         },
+        authorWinsAward: async (_, {name }, { dataSources }) => {
+            return await dataSources.authorAPI.authorWonAward({name})
+        },
     },
     
 }
