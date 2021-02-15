@@ -2,14 +2,10 @@ const { ApolloServer } = require('apollo-server');
 const { createStore } = require('./utils');
 const { resolvers } = require('./resolvers');
 const { typeDefs } = require('./schema');
-const AuthorAPI = require('./datasources/author');
-const BookAPI = require('./datasources/book');
 
 const store = createStore();
 
 const dataSources = () => ({
-  authorAPI: new AuthorAPI({ store }),
-  bookAPI: new BookAPI({ store }),
 });
 
 const server = new ApolloServer({
