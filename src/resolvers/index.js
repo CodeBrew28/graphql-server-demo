@@ -6,24 +6,23 @@ const resolvers =  {
     },
     Mutation: {
         newAuthor: async (_, {name }, { dataSources }) => {
-        return dataSources.authorAPI.findOrCreateAuthor({name})
-      },
-      authorWonAward: async (_, {name }, { dataSources }) => {
-        return await dataSources.authorAPI.authorWonAward({name})
-      },
-      authorWritesNewBook: async (_, {authorName, bookName }, { dataSources }) => {
-        return await dataSources.bookAPI.bookWritten({authorName,bookName })
-      }
+            return dataSources.authorAPI.findOrCreateAuthor({name})
+        },
+        authorWinsAward: async (_, {name }, { dataSources }) => {
+            return await dataSources.authorAPI.authorWonAward({name})
+        },
+        newBook: async (_, { bookName, authorName }, { dataSources }) => {
+            return await dataSources.bookAPI.newBook({bookName, authorName })
+        }
     },
     Book: {
         author: async (book, __, { dataSources }) => {
             return await dataSources.authorAPI.findOrCreateAuthor({name: book.authorName})
         },
     },
+    
 }
-
-
 
 module.exports = {
     resolvers
-  };
+};

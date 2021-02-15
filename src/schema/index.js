@@ -1,6 +1,5 @@
 const { gql } = require('apollo-server');
 
-
 const typeDefs = gql`
   type Query {
     authors: [Author]!
@@ -8,8 +7,8 @@ const typeDefs = gql`
 
   type Mutation {
     newAuthor(name: String!): Author
-    authorWonAward(name: String!): Boolean!
-    authorWritesNewBook(authorName:String!, bookName: String! ): Book!
+    authorWinsAward(name: String!): Boolean!
+    newBook(authorName:String!, bookName: String! ): Book!
   }
 
   type Author {

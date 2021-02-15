@@ -18,7 +18,6 @@ module.exports.createStore = () => {
         name: Sequelize.STRING,
         authorName:  Sequelize.STRING,
     });
-
-      
-    return { db, authors, books };
+  
+    return { db, authors , books};
   };
