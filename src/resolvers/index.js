@@ -5,12 +5,12 @@ const resolvers =  {
         },
     },
     Mutation: {
-
+        newAuthor: async (_, {name }, { dataSources }) => {
+            return dataSources.authorAPI.findOrCreateAuthor({name})
+        },
     },
     
 }
-
-
 
 module.exports = {
     resolvers

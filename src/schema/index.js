@@ -6,6 +6,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
+    newAuthor(name: String!): Author
   }
 
   type Author {
