@@ -8,12 +8,19 @@ const typeDefs = gql`
   type Mutation {
     newAuthor(name: String!): Author
     authorWinsAward(name: String!): Boolean!
+    newBook(authorName:String!, bookName: String! ): Book!
   }
 
   type Author {
     id: ID!
     name: String!
     hasWonAwards: Boolean!
+  }
+
+  type Book {
+    id: ID!
+    name: String!
+    author: Author
   }
 `;
 

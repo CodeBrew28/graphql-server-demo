@@ -11,6 +11,14 @@ const resolvers =  {
         authorWinsAward: async (_, {name }, { dataSources }) => {
             return await dataSources.authorAPI.authorWonAward({name})
         },
+        newBook: async (_, { bookName, authorName }, { dataSources }) => {
+            return await dataSources.bookAPI.newBook({bookName, authorName })
+        }
+    },
+    Book: {
+        author: async (book, __, { dataSources }) => {
+            return await dataSources.authorAPI.findOrCreateAuthor({name: book.authorName})
+        },
     },
     
 }

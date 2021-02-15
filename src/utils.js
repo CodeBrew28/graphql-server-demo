@@ -13,6 +13,11 @@ module.exports.createStore = () => {
             defaultValue: false
         }
     });
-      
-    return { db, authors };
+
+    const books = db.define('book', {
+        name: Sequelize.STRING,
+        authorName:  Sequelize.STRING,
+    });
+  
+    return { db, authors , books};
   };
