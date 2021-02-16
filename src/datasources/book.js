@@ -16,6 +16,10 @@ class BookAPI extends DataSource {
     )
     return books && books[0] ? books[0] : null;
   }
+
+  async getBooks({  authorName: authorName } = {}) {
+    return await this.store.books.findAll({where: {authorName:authorName}})
+  }
 }
 
 module.exports = BookAPI;

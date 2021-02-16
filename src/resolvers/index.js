@@ -3,6 +3,9 @@ const resolvers =  {
         authors: async (_,  {}, { dataSources }) => {
             return dataSources.authorAPI.getAllAuthors()
         },
+        getBooks: async (_,  {authorName}, { dataSources }) => {
+            return dataSources.bookAPI.getBooks({authorName: authorName})
+        },
     },
     Mutation: {
         newAuthor: async (_, {name }, { dataSources }) => {

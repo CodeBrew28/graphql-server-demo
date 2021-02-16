@@ -3,6 +3,7 @@ const { gql } = require('apollo-server');
 const typeDefs = gql`
   type Query {
     authors: [Author]!
+    getBooks(authorName:String!): [Book]!
   }
 
   type Mutation {

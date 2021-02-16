@@ -21,3 +21,8 @@ npm run start
 Head to https://studio.apollographql.com/dev 
 
 Create the project and set the endpoint to http://localhost:4000/graphql
+
+
+
+Challenges: 
+* Get all the books by an author
