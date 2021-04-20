@@ -1,9 +1,8 @@
 const { DataSource } = require('apollo-datasource');
 
 class BookAPI extends DataSource {
-  constructor({ store }) {
+  constructor() {
     super();
-    this.store = store;
   }
 
   initialize(config) {
@@ -11,10 +10,10 @@ class BookAPI extends DataSource {
   }
 
   async newBook({  bookName: bookBame, authorName: authorName } = {}) {
-    const books =  await this.store.books.findOrCreate(
-      {where: {authorName:authorName, name: bookBame}}
-    )
-    return books && books[0] ? books[0] : null;
+    // const books =  await this.store.books.findOrCreate(
+    //   {where: {authorName:authorName, name: bookBame}}
+    // )
+    return null;
   }
 }
 

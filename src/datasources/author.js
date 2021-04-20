@@ -2,23 +2,29 @@
 const { DataSource } = require('apollo-datasource');
 
 class AuthorAPI extends DataSource {
-  constructor({ store }) {
+ 
+  constructor() {
     super();
-    this.store = store;
-  }
+    this.authors = [{name: "aria"}]
+   
+  };
+
 
   async findOrCreateAuthor({ name: nameArg } = {}) {
-    const authors =  await this.store.authors.findOrCreate( {where: {name:nameArg}})
-    return authors && authors[0] ? authors[0] : null;
+    return this.authors[0]
+    // const authors =  await this.store.authors.findOrCreate( {where: {name:nameArg}})
+    // return authors && authors[0] ? authors[0] : null;
   }
 
   async authorWonAward({ name: nameArg } = {}) {
-    const succesfulUpdate = await this.store.authors.update( { hasWonAwards: true }, {where: {name:nameArg}})
-    return succesfulUpdate == true
+    return true
+    // const succesfulUpdate = await this.store.authors.update( { hasWonAwards: true }, {where: {name:nameArg}})
+    // return succesfulUpdate == true
   }
 
   async getAllAuthors() {
-    return await this.store.authors.findAll()
+    return this.authors
+    // return await this.store.authors.findAll()
   }
 }
 
